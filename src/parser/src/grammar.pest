@@ -1,0 +1,13 @@
+// TODO: remove when complete
+temp_wrapper = { soi ~ (comment | line_terminator_sequence)* ~ eoi }
+
+// 11.3 Line Terminators
+line_terminator = _{ "\n" | "\r" | "\u{2028}" | "\u{2029}" }
+line_terminator_sequence = _{ "\n" | ("\r" ~ !"\n") | "\u{2028}" | "\u{2029}" | "\r\n" }
+
+// 11.4 Comments
+comment = @{ multi_line_comment | single_line_comment }
+multi_line_comment = { "/*" ~ multi_line_comment_chars? ~ "*/" }
+multi_line_comment_chars = { !"*/" ~ any* }
+single_line_comment = { "//" ~ single_line_comment_char* }
+single_line_comment_char = { !line_terminator ~ any }

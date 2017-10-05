@@ -1,0 +1,11 @@
+[package]
+name = "brazin-parser"
+version = "0.1.0"
+authors = ["Chad Retz <chad.retz@gmail.com>"]
+
+[lib]
+name = "brazin_parser"
+
+[dependencies]
+pest = "1.0.0-beta.15"
+pest_derive = "1.0.0-beta.15"
